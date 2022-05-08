@@ -7,9 +7,12 @@
 :root {
     font-size: 62.5%;
 
-    --primary-color: hsla(170, 100%, 26%);
-    --headline: hsla(170, 11%, 15%);
-    --paragraph: hsla(210, 9%, 31%, 1);
+    --primary-color: hsl(170, 100%, 26%);
+    --headline: hsl(170, 11%, 15%);
+    --paragraph: hsl(210, 9%, 31%);
+
+    --brand-light: hsl(148, 23%, 89%);
+    --cards-color: hsl(39, 100%, 97%);
 
 
 }
@@ -71,4 +74,35 @@ button {
 
 img {
     max-width: 30rem;
+}
+
+.stats {
+    background: var(--cards-color);
+    border: solid .1rem var(--brand-light);
+    border-radius: .6rem;
+    
+    display: flex;
+    flex-direction: column;
+
+    padding: 4rem 8rem;
+}
+
+.stat {
+    margin-bottom: 6rem;
+}
+
+.stat:last-child {
+    margin-bottom: 0;
+}
+
+.stat__title {
+    color: var(--headline);
+    font-size: 4.8rem;
+    font-weight: 700;
+    line-height: 130%;
+}
+
+.stat__description {
+    color: var(--primary-color);
+    line-height: 150%;
 }
