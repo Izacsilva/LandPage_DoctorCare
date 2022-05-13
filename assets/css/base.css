@@ -14,7 +14,7 @@
     --brand-light: hsl(148, 23%, 89%);
     --cards-color: hsl(39, 100%, 97%);
 
-
+    --nav-height: 7.4rem;
 }
 
 body {
@@ -23,62 +23,109 @@ body {
     text-align: center;
 }
 
-header {
+.wrapper {
     width: 37.5rem;
-
-    margin: 0 auto;
-    
-    margin-top: 4.1rem;
+    margin-inline: auto;
+    padding-inline: 2.1rem;
 }
 
-h4 {
+nav {
+    display: flex;
+    height: var(--nav-height);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    
+    transform: translateX(-50%);
+}
+nav .wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+}
+
+nav .wrapper svg:nth-child(2) {
+    cursor: pointer;
+}
+
+nav.scroll {
+    background: var(--primary-color);
+    width: 100vw;
+}
+
+nav.scroll svg:nth-child(1) path {
+    fill: white;
+}
+
+nav.scroll svg:nth-child(2) path {
+    stroke: white;
+}
+
+header {
+    margin-top: calc(4.1rem + var(--nav-height));
+
+}
+
+header h4 {
     color: var(--primary-color);
     margin-bottom: 1.6rem;
 }
 
-h1 {
+header h1 {
     font-size: 3.6rem;
-    line-height: 130%;
+    line-height: 120%;
     margin-bottom: 2.1rem;
 }
 
-p {
+header p {
     font-size: 1.8rem;
     line-height: 150%;
     font-weight: 400;
     margin-bottom: 3.2rem;
 }
 
-button {
+header button {
+    align-items: center;
     background: var(--primary-color);
     border: none;
     border-radius: 2.5rem;
-    font-family: 'DM Sans', sans-serif;
-    
     color: white;
-    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    font-family: 'DM Sans', sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    line-height: 1.823rem;
-
-    margin: 0  auto;
-    padding: 1.6rem 2.4rem;
-    margin-bottom: 6.125rem;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 1.6rem;
+    justify-content: center;
+    line-height: 1.823rem;
+    margin: 0  auto;
+    margin-bottom: 6.125rem;
+    padding: 1.6rem 2.4rem;
+    text-transform: uppercase;
 
 }
 
 header img {
-    
     display: block;
     margin-inline: auto;
     
     width: 30rem;
-    object-position: 0 2rem;
+    object-position: 0 1rem;
+    
+}
+
+header::before {
+    content: "";
+    width: 100vw;
+    height: calc(112rem + var(--nav-height));
+    background-color: var(--brand-light);
+    display: block;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 .stats {
@@ -113,16 +160,4 @@ header img {
     margin: 0;
     font-size: 1.6rem;
     line-height: 150%;
-}
-
-header::before {
-    content: "";
-    width: 4rem;
-    height: 4rem;
-    background-color: #000;
-    display: block;
-
-    position: absolute;
-    top: 0;
-    left: 0;
 }
